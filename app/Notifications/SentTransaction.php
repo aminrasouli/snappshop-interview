@@ -25,12 +25,11 @@ class SentTransaction extends Notification implements ShouldQueue
         return SMSChannel::class;
     }
 
-    /**
-     * Get the mail representation of the notification.
-     */
     public function toSMS(object $notifiable): string
     {
-        return 'You have sent a new transaction ';
+        return __('message.transaction.sms.sent', [
+            'amount' => $this->transaction->amount,
+        ], 'fa');
     }
 
 }
