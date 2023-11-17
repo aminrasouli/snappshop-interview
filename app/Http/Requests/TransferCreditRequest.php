@@ -45,14 +45,14 @@ class TransferCreditRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'source_card.required' => 'شماره کارت مبدا الزامی است.',
-            'source_card.card_number' => 'شماره کارت مبدا معتبر نیست.',
-            'destination_card.required' => 'شماره کارت مقصد الزامی است.',
-            'destination_card.card_number' => 'شماره کارت مقصد معتبر نیست.',
-            'destination_card.different' => 'شماره کارت مبدا و مقصد نباید یکسان باشد.',
-            'amount.required' => 'مبلغ الزامی است.',
-            'amount.min' => 'حداقل مبلغ ۱۰,۰۰۰ ریال است.',
-            'amount.max' => 'حداکثر مبلغ ۵۰۰,۰۰۰,۰۰۰ ریال است.',
+            'source_card.required' => __('validation.source_card.required'),
+            'source_card.card_number' => __('validation.source_card.card_number'),
+            'destination_card.required' => __('validation.destination_card.required'),
+            'destination_card.card_number' => __('validation.destination_card.card_number'),
+            'destination_card.different' => __('validation.destination_card.different'),
+            'amount.required' => __('validation.amount.required'),
+            'amount.min' => __('validation.amount.min'),
+            'amount.max' => __('validation.amount.max'),
         ];
     }
 }
