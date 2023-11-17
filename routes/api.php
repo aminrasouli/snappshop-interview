@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::name('transaction.')->prefix('transaction')->group(function () {
+    Route::post('/transfer', [TransactionController::class, 'transfer'])->name('transfer');
+});
+
+Route::name('user.')->prefix('user')->group(function () {
+    Route::get('/top', [UserController::class, 'top'])->name('top');
 });
