@@ -15,7 +15,7 @@ class AccountFactory extends Factory
             'account_number' => $this->faker->unique()->numberBetween(
                 1000000000, 9999999999
             ),
-            'balance' => $this->faker->numberBetween(0, 1000000000),
+            'balance' => $this->faker->numberBetween(0, 100000000000),
         ];
     }
 }

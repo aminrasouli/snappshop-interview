@@ -45,5 +45,14 @@ class DatabaseSeeder extends Seeder
                 ->for($transaction)
                 ->create()
         );
+
+        $accounts->each(function (Account $account) {
+            $balance = $account->cards->sum(function ($card) {
+                $totalDestinationAmount = $card->destinationTransactions->sum('amount');
+                $totalSourceAmount = $card->sourceTransactions->sum('amount');
+                return $totalDestinationAmount - $totalSourceAmount;
+            });
+            $account->update(['balance' => $balance]);
+        });
     }
 }
