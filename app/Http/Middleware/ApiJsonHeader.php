@@ -17,6 +17,10 @@ class ApiJsonHeader
     public function handle(Request $request, Closure $next): mixed
     {
         $request->headers->set('Accept', 'application/json');
-        return $next($request);
+
+        $response = $next($request);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
