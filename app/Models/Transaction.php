@@ -12,8 +12,10 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'amount',
+        protected $fillable = [
+            'amount',
+            'source_card_id',
+            'destination_card_id',
     ];
 
     public function sourceCard(): BelongsTo

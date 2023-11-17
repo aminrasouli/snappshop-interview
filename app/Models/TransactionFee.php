@@ -11,6 +11,7 @@ class TransactionFee extends Model
     use HasFactory;
 
     protected $fillable = [
+        'transaction_id',
         'fee',
     ];
 
